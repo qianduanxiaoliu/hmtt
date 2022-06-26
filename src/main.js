@@ -6,6 +6,7 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 import 'amfe-flexible'
 import 'postcss-pxtorem'
+import '@/style/icon.less'
 
 Vue.use(Vant)
 Vue.config.productionTip = false
