@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 头部 -->
-    <van-nav-bar title="登录">
+    <van-nav-bar title="登录" @click-left="$router.go(-1)">
       <van-icon name="cross" slot="left" />
     </van-nav-bar>
 
@@ -17,7 +17,8 @@
         ]"
       >
         <template #left-icon>
-          <i class="toutiao toutiao-shouji"></i>
+          <!-- <i class="toutiao toutiao-shouji"></i> -->
+          <MyIcon name="shouji"></MyIcon>
         </template>
       </van-field>
       <van-field
@@ -31,15 +32,17 @@
         ]"
       >
         <template #left-icon>
-          <i class="toutiao toutiao-yanzhengma"></i>
+          <MyIcon name="yanzhengma"></MyIcon>
         </template>
         <template #button>
+          <!-- 倒计时 -->
           <van-count-down
             v-if="isCountDownShow"
             :time="time"
             format=" ss s"
             @finish="isCountDownShow = false"
           />
+          <!-- 发送验证码 -->
           <van-button
             @click="onSendSms"
             v-else
@@ -62,10 +65,11 @@
 <script>
 import { getSmsCode, login } from '@/api/user'
 export default {
+  name: 'Login',
   created () { },
   data () {
     return {
-      mobile: '13911111111', // 手机号
+      mobile: '15557620735', // 手机号
       code: '246810', // 短信验证码
       time: 5 * 1000,
       isCountDownShow: false
@@ -79,6 +83,8 @@ export default {
         const res = await login(values)
         // 获取成功后再vuex中调用setUser给user赋值
         this.$store.commit('setUser', res.data.data)
+        // 路由跳转
+        this.$router.push({ name: 'my' })
         // console.log(res)
       } catch (error) {
         console.log(error)

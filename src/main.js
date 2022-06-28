@@ -7,7 +7,9 @@ import Vant from 'vant'
 import 'vant/lib/index.less'
 import 'amfe-flexible'
 import 'postcss-pxtorem'
-import '@/styles/icon.less'
+import MyIcon from '@/components/MyIcon.vue'
+import '@/styles/index.less'
+Vue.component('MyIcon', MyIcon)
 
 Vue.use(Vant)
 Vue.config.productionTip = false
