@@ -1,7 +1,11 @@
 <template>
   <div class="layout">
-    <router-view class="main" />
+    <!-- 内容区域 -->
+    <keep-alive :include="['Home']">
+      <router-view class="main" />
+    </keep-alive>
 
+    <!-- 底部tabbar -->
     <van-tabbar route>
       <van-tabbar-item replace to="/home" icon="home-o">
         首页
@@ -24,6 +28,7 @@
 </template>
 <script>
 export default {
+  name: 'Layout',
   created () { },
   data () {
     return {}

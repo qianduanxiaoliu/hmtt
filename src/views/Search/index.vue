@@ -1,10 +1,9 @@
 <template>
-  <div>视频</div>
+  <div>搜搜组件</div>
 </template>
 
 <script>
 export default {
-  name: 'Video',
   created () { },
   data () {
     return {}
@@ -17,5 +16,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
 </style>
