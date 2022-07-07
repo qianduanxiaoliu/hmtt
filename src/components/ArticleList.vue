@@ -41,7 +41,7 @@ export default {
   mounted () {
     ele = this.$refs.pullrefresh.$el
     ele.addEventListener('scroll', function () {
-      console.log(this.scrollTop)
+      // console.log(this.scrollTop)
       scrollTop = this.scrollTop
     })
   },
